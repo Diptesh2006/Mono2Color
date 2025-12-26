@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Colorization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 AI Image Colorization</h1>
+            <p class="subtitle">Transform black-and-white images into vibrant color photographs</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h2>Upload Image</h2>
+                        <p>Drag and drop your image here or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="browse-btn" id="browseBtn">Browse Files</button>
+                    </div>
+                </div>
+
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <span id="fileName"></span>
+                    <button class="remove-btn" id="removeBtn">Remove</button>
+                </div>
+            </div>
+
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p>Colorizing your image... This may take a few seconds.</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="images-container">
+                    <div class="image-wrapper">
+                        <h3>Original</h3>
+                        <div class="image-box">
+                            <img id="originalImage" alt="Original image">
+                        </div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="image-wrapper">
+                        <h3>Colorized</h3>
+                        <div class="image-box">
+                            <img id="colorizedImage" alt="Colorized image">
+                        </div>
+                        <button class="download-btn" id="downloadBtn">Download</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <span id="errorText"></span>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Deep Learning • U-Net Architecture • VGG16 Transfer Learning</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
